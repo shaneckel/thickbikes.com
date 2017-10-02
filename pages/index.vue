@@ -12,7 +12,7 @@
 
       <section class="contact-swag">
         <h1>Hours (As of October 2nd)</h1>
-        <h2>Once more unto the winter, dear yinzers, once more. Or open up the bike trails up with ours fat bike tires.</h2>
+        <h2>Once more unto the winter, dear yinzers, once more. Or open the bike trails up with ours fat bike tires.</h2>
         <aside class="hours">
           <div><h4>Monday</h4> <span> Closed</span></div>
           <div><h4>Tuesday</h4> <span> 11a - 7p</span></div>
