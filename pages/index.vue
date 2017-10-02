@@ -11,14 +11,14 @@
       <aside class="page-sep main-sep"></aside>
 
       <section class="contact-swag">
-        <h1>Hours (spring)</h1>
-        <h2>You are now released, like a child, into the world free from the grips of Winter. Free to see Pittsburgh for all of its soon to be green glory. We welcome you Spring. Praise. </h2>
+        <h1>Hours (As of October 2nd)</h1>
+        <h2>Once more unto the winter, dear yinzers, once more. Or open up the bike trails up with ours fat bike tires.</h2>
         <aside class="hours">
-          <div><h4>Monday</h4> <span> 11a - 8p</span></div>
-          <div><h4>Tuesday</h4> <span> 11a - 8p</span></div>
-          <div><h4>Wednesday</h4> <span> 11a - 8p</span></div>
-          <div><h4>Thursday</h4> <span> 11a - 8p</span></div>
-          <div><h4>Friday</h4> <span> 11a - 8p</span></div>
+          <div><h4>Monday</h4> <span> Closed</span></div>
+          <div><h4>Tuesday</h4> <span> 11a - 7p</span></div>
+          <div><h4>Wednesday</h4> <span> 11a - 7p</span></div>
+          <div><h4>Thursday</h4> <span> 11a - 7p</span></div>
+          <div><h4>Friday</h4> <span> 11a - 7p</span></div>
           <div><h4>Saturday</h4> <span> 9a - 5p</span></div>
           <div><h4>Sunday</h4> <span> Closed</span></div>
         </aside>
@@ -46,7 +46,7 @@
 
       <section class="contact-swag swig" >
         <h1>Address</h1>
-        <h2>Or you can just click below and use the ol' google thing-a-ma-jag' like every other cyborg / human.</h2>
+        <h2>Or you can just click below and use google. Look, I'm not going to judge. We're all dependent on technology.</h2>
         <aside class="address">
           <h4><a href="https://www.google.com/maps?ll=40.42614,-79.978377&z=16&t=m&hl=en&gl=US&mapclient=embed&cid=10115945386035297245">62 S. 15th Street / Pittsburgh, Pa / 15203</a></h4>
         </aside>
