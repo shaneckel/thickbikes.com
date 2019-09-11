@@ -1,0 +1,438 @@
+
+html{
+  background: #8c6815;
+  height: 100%;
+  max-height: 100%;
+}
+body{
+	margin: 0;
+	min-height: 100%;
+  background: #333;
+	font-family: "Ideal Sans A", "Ideal Sans B";
+  background: url('../../static/img/main-back.jpg');
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  padding-bottom: 2em;
+}
+@media all and (max-width: 799px){
+  body{
+    background-size: 200%;
+    background-position: top;
+  }
+}
+
+a:active, a:link, a:visited{
+	color: #edd05e;
+}
+
+
+main{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	border-left: 1.8em solid  white;
+	border-right: 1.8em solid  white;
+	border-top: 1.8em solid  white;
+  background: #333;
+}
+@media all and (max-width: 799px){
+	main{
+		width: 100%;
+    border: 0
+	}
+}
+footer{
+	background: white;
+	display: block;
+  max-width: 1024px;
+	padding: 2rem 0rem;
+	margin: 0 auto 2em auto;
+	border-left: 1.8em solid white;
+	border-right: 1.8em solid white;
+}
+@media all and (max-width: 799px){
+	footer{
+    width: 100%;
+    border: 0;
+    margin-bottom: 0;
+	}
+}
+footer p{
+	padding: 0;
+	color: #444;
+	padding: 1em 0;
+	line-height: 1.8em;
+}
+footer a{
+	text-decoration: none;
+}
+@media all and (max-width: 799px){
+  footer p, footer ul{
+    text-align: center;
+    font-size: .9em;
+  }
+}
+header{
+	text-align: center;
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto
+}
+header img{
+	width: 60%;
+	margin: 3.8rem auto 3.8rem auto;
+}
+@media all and (max-width: 799px){
+	header img{
+		width: calc(100% - 20vw);
+	}
+}
+.content{
+	display:block;
+	background-size: contain;
+	overflow:hidden;
+}
+.content p{
+	margin: 0;
+	padding: 0;
+	color: white;
+	text-indent: 18px
+}
+.content strong{
+	color: #edd05d;
+}
+
+.contact-swag a, .contact-swag p{
+	font-family: "Ideal Sans A", "Ideal Sans B";
+}
+.contact-swag h1, .lead h1{
+	margin: 0 4rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	color: white;
+	font-size: 2.5em;
+  line-height:1.5em;
+	font-weight: 800;
+	padding-top: 6.8rem;
+}
+.contact-swag h2.small{
+	padding-top: 0;
+}
+
+.contact-swag h2, .lead h2{
+	color: #F0CC44;
+	margin-left: 4rem;
+	margin-right: 4rem;
+	padding-bottom: 2.8rem;
+	font-weight: 400;
+	font-size: 1.15em;
+	font-style: italic;
+}
+.swag-jag h2{
+	padding-bottom: 0;
+}
+.swag-jag h2 span{
+	font-size: .8em;
+	color: white;
+}
+.contact-swag p{
+	margin-left: 4rem;
+}
+.lead h2{
+	color: white;
+	border-top: .2em solid #F0CC44;
+	padding-top: 2em;
+}
+.lead h1{
+	padding-top:1.8em;
+	line-height: 1.4em;
+	font-size: 3.4em;
+}
+.lead h1 em{
+	color: #F0CC44;
+}
+@media all and (max-width: 799px){
+	.contact-swag h2, .lead h2, h4{
+		margin-left: 1rem;
+		line-height: 1.6em;
+	}
+}
+.contact-swag p a{
+	text-decoration: none;
+}
+.contact-swag p{
+	font-weight: 800;
+	font-size: 2em;
+	margin-left: 4rem;
+	margin-top: .9em;
+}
+@media all and (max-width: 799px){
+	.contact-swag p{
+		margin-left: 0;
+	}
+}
+.emails	aside{
+	width: 30%;
+	margin: 1em 2em 1em 2rem;
+	padding: 1em 0;
+	display: inline-block;
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+@media all and (max-width: 799px){
+	.emails aside{
+		margin: 1rem;
+		width: 90%;
+	}
+}
+
+.emails h3{
+	margin: 0;
+	font-weight: 500;
+	color: white;
+	font-size: .9em;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+}
+.emails{
+	vertical-align: top;
+	padding: 2rem 2rem;
+}
+.emails h4{
+	margin: 0;
+	padding-top: .4em;
+	font-weight: 500;
+	color: white;
+	font-size: .9em;
+	letter-spacing: .1em;
+}
+.contact-swag h2 a{
+	color: white;
+}
+.address h4{
+	margin: 0;
+	color: white;
+	margin-left: 4rem;
+	font-size: 1.6em;
+	font-weight: 500;
+	font-style: italic;
+	margin-bottom: 4.5em;
+}
+@media all and (max-width: 799px){
+	.address h4{
+		margin-left: 1rem;
+	}
+}
+.address a{
+	text-decoration: none;
+	color: white;
+}
+.address a:hover{
+	color:#F0CC44 ;
+}
+.hours{
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0 4rem;
+	padding-top: 0;
+	padding-bottom: 3.2em
+}
+@media all and (max-width: 799px){
+	.hours{
+		padding: 1rem;
+	}
+}
+.hours div{
+	flex: 1 100px;
+	flex-basis: auto;
+	min-width: 100px;
+	display: inline-block;
+	width: 96px;
+	border-top: 1px solid white;
+	border-right: 1px solid white;
+	text-align: left;
+  padding-left: 8px;
+  padding-top: 2em;
+  margin: 5px;
+  margin-top: 1.2em;
+}
+@media all and (max-width: 799px){
+	.hours div{
+		margin-bottom: 1rem;
+	}
+}
+.hours h4{
+	margin: 0;
+	color: white;
+	padding: 0;
+}
+.hours span{
+	color: white;
+	font-style: italic;
+	font-size: 1.4em;
+	line-height: 1.8em;
+	color: #F0CC44;
+}
+
+.main-sep{
+	background: url('../../static/img/page-sep-main.jpg');
+}
+.contact-sep{
+	background: url('../../static/img/page-sep-contact.jpg');
+}
+.intense-sep{
+	background: url('../../static/img/page-sep-intense.jpg');
+}
+.special-sep{
+	background: url('../../static/img/page-sep-special.jpg');
+}
+.page-sep{
+	background-size: 100%;
+	background-position: center;
+	height: 18em;
+	margin-top: 3.2em;
+  width: 100%
+}
+@media all and (max-width: 1024px){
+  .page-sep{
+    height: 28vw;
+  }
+}
+@media all and (max-width: 600px){
+  .page-sep{
+    height: 23vw;
+  }
+}
+.companies p{
+  text-align: left;
+  background: black;
+  display: inline-block;
+  padding: 0;
+  text-indent: 0;
+}
+
+*{
+	 -webkit-margin-before:0em;
+	 -webkit-margin-after:0em;
+ }
+.fb-like{
+	padding-bottom: 1em;
+}
+
+.icons{
+	padding-bottom: 1.2em;
+}
+.icons .fb-like{
+	overflow: hidden;
+	padding-bottom: 0;
+	margin-right: 1em;
+}
+.icons .instagram{
+	display: inline-block;
+}
+
+ul{
+  -webkit-padding-start: 0px;
+}
+
+@media all and (max-width: 799px){
+  .lead h1{
+    padding: 0;
+    margin: 0;
+    padding: 3rem 2rem;
+    font-size: 1.6em;
+    line-height: 1.8em;
+	}
+  .contact-swag h1{
+    padding: 0;
+    margin: 0;
+    padding: 2rem 2rem 0 2rem;
+    font-size: 1.6em;
+    line-height: 1.8em;
+  }
+  .swag-jag h2 span{
+    display: none;
+  }
+  .swag-jag p{
+    margin: 0;
+    padding: 0;
+    padding: 3rem 1rem 1rem 1rem;
+  }
+  .contact-swag h2, .lead h2, h4{
+    padding: 0;
+    margin: 0;
+    margin: 0rem 2rem;
+    font-size: 1em;
+    margin-top: 0;
+    padding-top: 2rem;
+    line-height: 1.8em;
+	}
+  .contact-swag aside{
+    margin: 0;
+    margin-bottom: 1em;
+  }
+  .contact-swag.swig aside h4{
+    margin-bottom: 0;
+    font-size: 1em;
+    margin-left: 2rem;
+
+  }
+}
+
+footer p
+{
+  padding: .5em 0;
+  color: black;
+}
+footer ul
+{
+  list-style-type: none;
+}
+footer li{
+  display: inline-block;
+  margin-right: .5em;
+  background: black;
+  padding: .2em .6em;
+}
+footer p a{
+  color: #999;
+  text-decoration: underline;
+}
+
+@media all and (max-width: 799px){
+  footer p{
+    text-align: center;
+    font-size: .9em;
+    padding: 1.6em 0 1em;
+  }
+}
+
+.container{
+  margin: 0;
+}
+.app{
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.fourcontainer{
+  color: white;
+  background: #333;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+.fourcontainer h1{
+  padding: 2rem;
+  font-size: 2.8em;
+  line-height: 1.4em;
+}
+.fourcontainer p
+{
+  padding: 2rem;
+  font-size: 1.8em;
+}
