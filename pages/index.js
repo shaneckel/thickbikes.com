@@ -1,110 +1,221 @@
-import React from 'react'
-import Head from 'next/head'
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react'
+import { Text, Flex, Box, Image, A} from '../components/Common'
+import { Theme } from '../components/Theme'
+import { motion } from 'framer-motion'
+import FrontContainer from '../components/FrontContainer'
+import Link from 'next/link'
+import { RichText, Date } from 'prismic-reactjs'
+import { format } from 'date-fns'
+import Prismic from 'prismic-javascript'
 
-const Home = () => (
-  <div className="app">
-    <header>
-      <img src="static/img/thicklogo.svg" alt="Thick Bikes - Pittsburgh Bike Shop logo" />
-    </header>
-    <main>
-      <Head>
-        <title>Thick Bikes</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta content="Thick Bikes - Pittsburgh Bike Shop." name="description" />
-        <meta content="Thick Bikes" name="author" />
-        <link rel="icon" type="image/x-icon" href="static/favicon.ico'" />
-        <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6038632/635026/css/fonts.css" />
-        <link href="static/css/main.css" rel="stylesheet" />
-        <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-17701242-8', 'auto');
-          ga('send', 'pageview');
-          `,
-        }} />
-        <meta property="og:url" content="https://www.thickbikes.com" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Thick Bikes" />
-        <meta property="og:description" content="Pittsburgh Bike Shop" />
-        <meta property="og:image" content="https://www.thickbikes.com/thickshare.jpg" />
-        <meta property="fb:app_id" content="902597493193184" />
-      </Head>
+const client = Prismic.client('https://thick.cdn.prismic.io/api/v2')
 
-      <div className="content">
+const DateBox = ({children}) => {
+  return (
+    <Box
+      flex='1 100px' 
+      width='96px'
+      borderRight='2px solid'
+      borderTop='2px solid'
+      m='2'
+      p='1'
+      minWidth='110px'
+      borderRadius='0 6px 0 0'
+    >
+      {children}
+    </Box>
+  )
+}
 
-        <section className="lead">
-          <h1><em>Thick Bikes</em> is an award winning bike shop. We sell bikes. We repair bikes. We're all about bikes.</h1>
-          <h2>We have every bike things for all types of bike people. If you want to buy, repair, or modify your bike... We're the best shop in Pittsburgh for bikes. We've been helping Pittsburgh safely get on two wheels since 1999.</h2>
-        </section>
+const Hours = {
+  monday: 'Closed',
+  tuesday: '11a - 7p',
+  wednesday: '11a - 7p',
+  thursday: 'Closed',
+  friday: '11a - 7p',
+  saturday: '9a - 5p',
+  sunday: 'Closed'
+}
 
-        <aside className="page-sep main-sep"></aside>
+const Home = (props) => {
+  const mainData = props.prismicRequest.results[0];
 
-        <section className="contact-swag">
-          <h1>Hours (As of April 1st)</h1>
-          <h2>Spring. Time to fix your old bike and get a new one.</h2>
-          <aside className="hours">
-            <div><h4>Monday</h4> <span> 11a - 8p</span></div>
-            <div><h4>Tuesday</h4> <span> 11a - 8p</span></div>
-            <div><h4>Wednesday</h4> <span> 11a - 8p</span></div>
-            <div><h4>Thursday</h4> <span> 11a - 8p</span></div>
-            <div><h4>Friday</h4> <span> 11a - 8p</span></div>
-            <div><h4>Saturday</h4> <span> 9a - 5p</span></div>
-            <div><h4>Sunday</h4> <span> Closed</span></div>
-          </aside>
-        </section>
+  return (
+    <motion.div       
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      variants={Theme.transition.default}
+    >
+      <FrontContainer>
+        <Text fontSize={[ 3, 6]} as='h1' fontWeight='400' pb='4'color='grey' mt='5'>
+          <Text as='span' color='background' fontWeight='900'>THICK bikes</Text> is an award winning bike shop in Pittsburgh. We <Text as='span' color='background' fontWeight='800'>sell</Text> bikes & bike gear. We <Text as='span' color='background' fontWeight='800'>repair</Text> bikes. We <Text as='span' color='background' fontWeight='800'>ride</Text> bikes. We're all about bikes.
+        </Text>
+        <Image borderRadius='6px' src="/img/thick-building.jpg" alt="Bike shop building." />
+      </FrontContainer>
 
-        <aside className="page-sep contact-sep"></aside>
+      <FrontContainer>
+        <Text color='grey' fontSize={[1, 2]} as='h2' fontWeight='400'><Text color='background' fontSize={[2, 3]} fontFamily='"Ideal Sans A", "Ideal Sans B"' as='span' fontWeight='800'>We have every bike thing for all types of bike people.</Text> If you want to buy, repair, or modify your bike... We're the best shop in Pittsburgh for bikes. We've been helping Pittsburgh safely get on two wheels since 2000.</Text>
+        <Flex
+          display={['block', 'flex']}
+          flexWrap='wrap'
+          mt={[2, 5]}
+        >
+          <Box 
+            flex='1 0 40%' 
+            width={[1, 1, 1, 1/2]} 
+            mr={[0, 2]}
+          >
+            <Image 
+              borderRadius='6px' 
+              src="/img/thick-inside-1.jpg" 
+              alt="Bike shop inside."
+            />
+          </Box>
+          
+          <Box 
+            flex='1 0 40%' 
+            width={[1, 1, 1, 1/2]} 
+            ml={[0, null, 1, 2]}
+            display={['none', 'block']}
+          >
+            <Image 
+              borderRadius='6px' 
+              src="/img/thick-inside-2.jpg" 
+              alt="Bike shop inside."
+            />
+          </Box>
+        </Flex>
+      </FrontContainer>
 
-        <section className="contact-swag swag-jag">
-          <h1>Phone / Email </h1>
-          <h2>Feel free to contact us about anything bike related. We're friendly.</h2>
-          <p><a href="tel:4123903590">(412) 390 - 3590</a></p>
-          <div className="emails">
-            <aside>
-              <h3>Technical Questions</h3>
-              <h4><a href="mailto:tech@thickbikes.com">tech@thickbikes.com</a></h4>
-            </aside>
-            <aside>
-              <h3>Sales Questions</h3>
-              <h4><a href="mailto:sales@thickbikes.com">sales@thickbikes.com</a></h4>
-            </aside>
-          </div>
-        </section>
+      <FrontContainer>      
+        <Text as='h1'>News</Text>
+        <Text as='p' fontWeight='400' fontSize='.8em' color='grey'>
+          <Text as='span' fontWeight='900' color='background'>{ format(new Date(mainData.last_publication_date), 'MMMM do, yyyy')}</Text>
+        </Text>
+        <Box
+          color='grey'
+        >
+          {RichText.render(mainData.data.body)}
+        </Box>
+      </FrontContainer>
 
-        <aside className="page-sep intense-sep"></aside>
+      <FrontContainer>
+        <Text as='h1'>Hours (Covid-19 Hours)</Text>
+        <Text as='h2' fontWeight='400' fontSize={[1,2]} color='grey'>Walk in sales one customer at a time. Email us at <a href="mailto:sales@thickbikes.com">sales@thickbikes.com</a> with any questions. Walk in service is also available. Email <a href="mailto:tech@thickbikes.com">tech@thickbikes.com</a> or Text <a href="tel:4123903590">(412) 390-3590</a>.</Text>
+        <Flex 
+          as='aside'
+          display='flex'
+          flexWrap='wrap'
+          mt='5'
+        >
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Monday</Text> <Text as='p' color='grey'>{Hours.monday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Tuesday</Text> <Text as='p' color='grey'>{Hours.tuesday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Wednesday</Text> <Text as='p' color='grey'>{Hours.wednesday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Thursday</Text> <Text as='p' color='grey'>{Hours.thursday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Friday</Text> <Text as='p' color='grey'>{Hours.friday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Saturday</Text> <Text as='p' color='grey'>{Hours.saturday}</Text></DateBox>
+          <DateBox><Text as='h4' fontSize='1' pb='0' mb='3'>Sunday</Text> <Text as='p' color='grey'>{Hours.sunday}</Text></DateBox>
+        </Flex>
+      </FrontContainer>
 
-        <section className="contact-swag swig" >
-          <h1>Address</h1>
-          <h2>Don't let the southside parking phobia keep you from stopping by. We have a parking lot in front of our building right off of 15th street.</h2>
-          <aside className="address">
-            <h4><a href="https://www.google.com/maps?ll=40.42614,-79.978377&z=16&t=m&hl=en&gl=US&mapclient=embed&cid=10115945386035297245">62 S. 15th Street / Pittsburgh, Pa / 15203</a></h4>
-          </aside>
-        </section>
+      <FrontContainer> 
+        <Text as='h1'>Who we carry</Text>
+        <Text as='p' css={css`a{text-decoration: underline; `}>
+          We carry a wide range of quality brands including <Text as='span' fontWeight='900'>bikes</Text> from <a href='https://www.specialized.com/us/en' target='_blank'>Specialized</a>, <a href='https://www.giant-bicycles.com/us' target='_blank'>Giant</a>, <a href='https://salsacycles.com/' target='_blank'>Salsa</a>, <a href='https://surlybikes.com/' target='_blank'>Surly</a> and <a href='https://allcitycycles.com/' target='_blank'>All-City</a>.
+        </Text>
+        <Text as='p' css={css`a{text-decoration: underline;}`}>
+          We have <Text as='span' fontWeight='900'>eBikes</Text> from <a href='https://www.gazellebikes.com/' target='_blank'>Gazelle</a>, <a href='https://www.giant-bicycles.com/us/ebikes-overview' target='_blank'>Giant</a> and <a href='https://www.specialized.com/us/en/electric-bikes' target='_blank'>Specialized</a> as well.  
+        </Text>
+        <Text as='p' css={css`a{text-decoration: underline;}`}>
+        You will also find a selection of <Text as='span' fontWeight='900'>eCargo bikes</Text> from <a href='https://www.urbanarrow.com/en' target='_blank'>Urban Arrow</a>, <a href='https://yubabikes.com/' target='_blank'>Yuba</a>, <a href='http://www.larryvsharry.com/' target='_blank'>Larry Vs. Harry</a>, and <a href='https://surlybikes.com/bikes/big_easy' target='_blank'>Surly</a>.
+        </Text>
+        <Text as='p' css={css`a{text-decoration: underline;}`}>
+          We also fix up and sell <Text as='span' fontWeight='900'>used bikes</Text>. Visit our <Link href="/used">Used Bike Photo Album</Link> to see our current listing of used bikes.
+        </Text>
+      </FrontContainer>
 
-        <aside className="page-sep special-sep"></aside>
+      <FrontContainer> 
+        <Text as='h1'>Phone / Email </Text>
+        <Text as='h2' fontWeight='400' fontSize={[1,2]} color='grey'>Feel free to contact us about anything bike related. We're friendly.</Text>
+        
+        <Text as='h1'>
+          <a href="tel:4123903590">(412) 390-3590</a> 
+        </Text>
+        
+        <Flex 
+          as='aside'
+          flexWrap='wrap'
+          mt='5'
+          textAlign='center'
+          display={['block', 'flex']}
+        >
+          <Box
+            flex='1' 
+            width={[1, 1/2]} 
+            mr={[0, 4]}
+            mb={[4, 0]}
+          >
+            <A as='a' fontWeight='300' color='white' href="mailto:tech@thickbikes.com"> 
+              <Box 
+                bg='background'
+                color='white'
+                borderRadius='6px'
+                p='1'
+              >
+                <Text as='h4' color='white' fontSize='3' mb='0'>Technical Questions</Text>
+                <p>tech@thickbikes.com</p>
+              </Box>
+            </A>
+          </Box>
+          <Box
+            flex='1' 
+            width={[1, 1/2]} 
+            ml={[0, 4]}
+          >
+            <A as='a' fontWeight='300' color='white' href="mailto:sales@thickbikes.com"> 
+              <Box 
+                bg='background'
+                color='white'
+                borderRadius='6px'
+                p='1'
+              >
+                <Text as='h4' color='white' fontSize='3' mb='0'>Sales Questions</Text>
+                <p>sales@thickbikes.com</p>
+              </Box>
+            </A>
+          </Box>
+        </Flex>
+      </FrontContainer>
 
-        <section className="contact-swag ">
-          <h1>Goods</h1>
-          <h2>We carry a wide range of companies and we're currently finalizing the list in a sortable format. Until then, let's just say that we carry all the cool stuff at a good price.</h2>
-          <h2>We also fix up and sell used bikes. Visit our <a href="https://www.facebook.com/pg/thickbikes/photos/?tab=album&album_id=1289118467776234">Facebook Page</a> to see our current listing of used bikes.</h2>
-          <h2></h2>
-        </section>
+      <FrontContainer>
+        <Text as='h1'>Location</Text>
+        <Text as='h2' fontWeight='400' fontSize={[1,2]} color='grey'>Don't let the southside parking phobia keep you from stopping by. We have a parking lot in front of our building right off of 15th street.</Text>
+        <A as='a' fontWeight='300' color='white' href="https://www.google.com/maps?ll=40.42614,-79.978377&z=16&t=m&hl=en&gl=US&mapclient=embed&cid=10115945386035297245" > 
+          <Box 
+            bg='background'
+            color='white'
+            borderRadius='6px'
+            p='1'
+            textAlign='center'
+          >
+            <p>62 S. 15th Street / Pittsburgh, Pa / 15203</p>
+          </Box>
+        </A>
+      </FrontContainer>
+    </motion.div>  
+  )
+}
 
-      </div>
-    </main>
-    <footer>
-      <ul>
-        <li><a href="https://www.facebook.com/thickbikes/">facebook</a></li>
-        <li><a href="https://twitter.com/thickbikes">twitter</a></li>
-        <li><a href="https://www.instagram.com/thickbikes/">instagram</a></li>
-      </ul>
-      <p>As a quick reminder. We have <a href="https://www.youtube.com/watch?v=cd4-UnU8lWY&feature=youtu.be&t=35">free parking</a>.</p>
-    </footer>
-  </div>
-)
+Home.getInitialProps = async (context ) => {
+  const prismicRequest = await client.query(
+    Prismic.Predicates.at('document.type', 'home_page')
+  )
+  if (context.res) {
+    context.res.setHeader('Cache-Control', 's-maxage=1, stale-while-revalidate')
+  }
+  return { prismicRequest }
+}
 
 export default Home

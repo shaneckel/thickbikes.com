@@ -1,17 +1,36 @@
 {
   "name": "thickbikes.com",
-  "version": "2.0.0",
-  "description": "website for a bike shop in Pittsburgh",
-  "author": "shane eckel",
-  "private": true,
+  "version": "3.0.0",
+  "description": "thick bikes website",
+  "author": {
+    "name": "shane eckel",
+    "email": "shaneckel@gmail.com",
+    "url": "https://shaneckel.com/"
+  },
+  "license": "WTFPL",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "next": "^9.3.5",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "@emotion/cache": "11.0.0",
+    "@emotion/css": "11.0.0",
+    "@emotion/react": "11.1.2",
+    "@emotion/server": "11.0.0",
+    "@emotion/styled": "11.0.0",
+    "date-fns": "^2.16.1",
+    "framer-motion": "^3.1.1",
+    "imagemin-mozjpeg": "^9.0.0",
+    "next": "latest",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
+    "prismic-javascript": "^3.0.2",
+    "prismic-reactjs": "^1.3.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-responsive": "^8.2.0",
+    "styled-system": "^5.1.5"
   }
 }
